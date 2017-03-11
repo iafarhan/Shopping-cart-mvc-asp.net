@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.OleDb;
 using System.Linq;
-
 using System.Web;
 
 namespace MVC.Models
@@ -11,29 +10,21 @@ namespace MVC.Models
     public class User
     {
         [Required(ErrorMessage = "*")]
-        public string Name
-        { get; set;}
-        [Required(ErrorMessage ="*")]
-        public string Password
-        {
-            get;set;
-        }
-        [Required(ErrorMessage ="*")]
-        [EmailAddress(ErrorMessage ="       please enter valid email address!")]
+        public string Name { get; set; }
 
-        public string Email
-        {
-            get;set;        }
         [Required(ErrorMessage = "*")]
-        public string Gender
-        {
-            get; set;       }
+        public string Password { get; set; }
+
         [Required(ErrorMessage = "*")]
-        [Range(1,100)]
-        public int Age
-        {
-            get;set;
-        }
+        [EmailAddress(ErrorMessage = "       Please enter valid email address!")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "*")]
+        public string Gender { get; set; }
+
+        [Required(ErrorMessage = "10-100")]
+        [Range(10, 100)]
+        public int Age { get; set; }
 
         public static void InsertUser(User user)
         {
@@ -62,7 +53,6 @@ namespace MVC.Models
                 // Execute command
                 try
                 {
-                    //cmd.Parameters["@user"].Value = "tooooooooooooooooooooooooooooooooooo long user name";
                     cmd.ExecuteNonQuery();
 
                     //  Console.WriteLine("Row inserted successfully.");

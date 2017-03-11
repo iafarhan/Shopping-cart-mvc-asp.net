@@ -3,7 +3,7 @@
 @{
     Layout = null;
 }
-<link type="text/css" rel="stylesheet" href="~/stylesheet.css"/>
+<link type="text/css" rel="stylesheet" href="~/Content/stylesheet.css"/>
 <!DOCTYPE html>
 
 <html>
@@ -31,7 +31,7 @@
 
 
             @Html.EditorFor(model => model.Name, new {htmlAttributes = new {placeholder = "Enter your name", @class = "textBoxes"}})
-            @Html.ValidationMessageFor(model => model.Name, null, new {@style="color:red;"})
+            @Html.ValidationMessageFor(model => model.Name, null, new {@style = "color:red;"})
 
             <br/>
             <br/>
@@ -55,15 +55,15 @@
             <br/>
             <br/>
             @Html.EditorFor(model => model.Age, new {htmlAttributes = new {placeholder = "Enter your age in numbers", @class = "textBoxes"}})
-            @Html.ValidationMessageFor(model => model.Age, null, new { @style = "color:red;" })
+            @Html.ValidationMessageFor(model => model.Age, null, new {@style = "color:red;"})
 
 
             @Html.EditorFor(model => model.Email, new {htmlAttributes = new {placeholder = "Enter your email", @class = "textBoxes"}})
-            @Html.ValidationMessageFor(model => model.Email, null, new { @style = "color:red;" })
+            @Html.ValidationMessageFor(model => model.Email, null, new {@style = "color:red;"})
 
 
             @Html.EditorFor(model => model.Password, new {htmlAttributes = new {placeholder = "PASSWORD", @class = "textBoxes", @type = "password"}})
-            @Html.ValidationMessageFor(model => model.Password, null, new { @style = "color:red;" })
+            @Html.ValidationMessageFor(model => model.Password, null, new {@style = "color:red;"})
             <br/>
             <br/>
 
