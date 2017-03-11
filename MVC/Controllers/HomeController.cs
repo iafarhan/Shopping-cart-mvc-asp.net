@@ -30,7 +30,11 @@ namespace MVC.Controllers
                 return RedirectToAction("SignUp");
             }
 
-            UpdateModel(user);
+            if (!TryUpdateModel(user)) {
+
+                return RedirectToAction("SignUp");
+            }
+
             Models.User u = new User();
             u = user;
             Models.User.InsertUser(u);

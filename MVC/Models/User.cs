@@ -3,30 +3,32 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.OleDb;
 using System.Linq;
+
 using System.Web;
 
 namespace MVC.Models
 {
     public class User
     {
-        [Required(ErrorMessage = "You forgot to enter a username.")]
+        [Required(ErrorMessage = "*")]
         public string Name
-        {
-            get; set;        }
-        [Required]
+        { get; set;}
+        [Required(ErrorMessage ="*")]
         public string Password
         {
             get;set;
         }
-        [Required]
+        [Required(ErrorMessage ="*")]
+        [EmailAddress(ErrorMessage ="       please enter valid email address!")]
+
         public string Email
         {
             get;set;        }
-        [Required]
+        [Required(ErrorMessage = "*")]
         public string Gender
         {
             get; set;       }
-        [Required]
+        [Required(ErrorMessage = "*")]
         [Range(1,100)]
         public int Age
         {
