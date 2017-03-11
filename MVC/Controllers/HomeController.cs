@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MVC.Models;
 namespace MVC.Controllers
-{
+{ //check
     public class HomeController : Controller
     {
         static Models.User user = new User();
