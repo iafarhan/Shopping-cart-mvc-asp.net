@@ -25,6 +25,11 @@ namespace MVC.Controllers
         [ActionName("SignUp")]
         public ActionResult SignUp_post()
         {
+            if (ModelState.IsValid == false)
+            {
+                return RedirectToAction("SignUp");
+            }
+
             UpdateModel(user);
             Models.User u = new User();
             u = user;
