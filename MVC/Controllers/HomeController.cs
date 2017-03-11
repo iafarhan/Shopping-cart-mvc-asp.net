@@ -81,7 +81,7 @@ namespace MVC.Controllers
 
         public ActionResult LogIn()
         {
-            throw new NotImplementedException();
+            return View();
         }
 
         public ActionResult Edit()
