@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC.Models;
+
 namespace MVC.Controllers
 { //check
+
     public class HomeController : Controller
     {
         static Models.User user = new User();
@@ -16,11 +18,9 @@ namespace MVC.Controllers
         [ActionName("SignUp")]
         public ActionResult SignUp()
         {
-
-
             return View();
-
         }
+
         [HttpPost]
         [ActionName("SignUp")]
         public ActionResult SignUp_post()
@@ -30,34 +30,32 @@ namespace MVC.Controllers
             u = user;
             Models.User.InsertUser(u);
 
-           return RedirectToAction("DisplayDetails");
+            return RedirectToAction("DisplayDetails");
         }
 
-        public ActionResult DisplayDetails() {
-
+        public ActionResult DisplayDetails()
+        {
             User u = new User();
-            u=user;
+            u = user;
             return View(u);
         }
+
         public ActionResult MainPage()
         {
-
-
             return View();
         }
 
         [HttpGet]
         [ActionName("vendorSignUp")]
-        public ActionResult vendorSignUp() {
-
-
+        public ActionResult vendorSignUp()
+        {
             return View();
         }
+
         [HttpPost]
         [ActionName("vendorSignUp")]
         public ActionResult vendorSignUp_post()
         {
-
             UpdateModel(vendor);
             Vendor v = new Vendor();
             Vendor.InsertVendor(vendor);
@@ -65,15 +63,11 @@ namespace MVC.Controllers
             return RedirectToAction("DisplayDetailsVendor");
         }
 
-        public ActionResult DisplayDetailsVendor() {
-
+        public ActionResult DisplayDetailsVendor()
+        {
             Vendor v = new Vendor();
             v = vendor;
             return View(v);
         }
-
-
-
     }
-
 }

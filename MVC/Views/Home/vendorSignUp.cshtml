@@ -3,69 +3,69 @@
 @{
     Layout = null;
 }
-<link type="text/css" rel="stylesheet" href="~/stylesheet.css" />
+<link type="text/css" rel="stylesheet" href="~/stylesheet.css"/>
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width"/>
     <title>vendorSignUp</title>
 </head>
-<body style="background:#F9F9FA;">
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
+<body style="background: #F9F9FA;">
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
 
 
-    @using (Html.BeginForm())
-    {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
-            <div class="shaddowsignup">
-                <img style="width:100px;height:100px;float:left;margin-left:20px;" src="@Url.Content("~/images/NS1.png")" />
-                <h2 style="color:#EE4522;float:left;margin-left:-25px;margin-top:43px;font-size:150%;">eutron Store.</h2>
-            </div>
+    <div class="form-horizontal">
+        <div class="shaddowsignup">
+            <img style="width: 100px; height: 100px; float: left; margin-left: 20px;" src="@Url.Content("~/images/NS1.png")"/>
+            <h2 style="color: #EE4522; float: left; margin-left: -25px; margin-top: 43px; font-size: 150%;">eutron Store.</h2>
+        </div>
 
-            <div class="signup" style="text-align:center;">
+        <div class="signup" style="text-align: center;">
 
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-
-                @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { placeholder = "COMPANY NAME", @class = "textBoxes" } })
-                @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
-
-                <br />
-                <br />
-
-                @Html.EditorFor(model => model.OwnerName, new { htmlAttributes = new { placeholder = "OWNER NAME", @class = "textBoxes" } })
-                @Html.ValidationMessageFor(model => model.OwnerName)
+            @Html.ValidationSummary(true, "", new {@class = "text-danger"})
 
 
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "ENTER YOUR EMAIL", @class = "textBoxes" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.CompanyName, new {htmlAttributes = new {placeholder = "COMPANY NAME", @class = "textBoxes"}})
+            @Html.ValidationMessageFor(model => model.CompanyName, "", new {@class = "text-danger"})
+
+            <br/>
+            <br/>
+
+            @Html.EditorFor(model => model.OwnerName, new {htmlAttributes = new {placeholder = "OWNER NAME", @class = "textBoxes"}})
+            @Html.ValidationMessageFor(model => model.OwnerName)
 
 
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "PASSWORD", @class = "textBoxes", @type = "password" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                <br />
-                <br />
-                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { placeholder = "ADDRESS", @class = "textBoxes", } })
-                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.Email, new {htmlAttributes = new {placeholder = "ENTER YOUR EMAIL", @class = "textBoxes"}})
+            @Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})
 
-                <br /><br />
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="signupbtn" />
-                    </div>
+
+            @Html.EditorFor(model => model.Password, new {htmlAttributes = new {placeholder = "PASSWORD", @class = "textBoxes", @type = "password"}})
+            @Html.ValidationMessageFor(model => model.Password, "", new {@class = "text-danger"})
+            <br/>
+            <br/>
+            @Html.EditorFor(model => model.Address, new {htmlAttributes = new {placeholder = "ADDRESS", @class = "textBoxes",}})
+            @Html.ValidationMessageFor(model => model.Address, "", new {@class = "text-danger"})
+
+            <br/><br/>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="signupbtn"/>
                 </div>
-                <br />
-
             </div>
-
+            <br/>
 
         </div>
-    }
+
+
+    </div>
+}
 
 </body>
 

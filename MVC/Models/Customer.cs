@@ -7,10 +7,14 @@ namespace MVC.Models
 {
     public class Customer
     {
-        string name;string gender;int age;
-        public string Name { 
-        set { name = value; }
-        get{ return name; }
+        string name;
+        string gender;
+        int age;
+
+        public string Name
+        {
+            set { name = value; }
+            get { return name; }
         }
 
         public string Gender
@@ -18,9 +22,11 @@ namespace MVC.Models
             set { gender = value; }
             get { return gender; }
         }
-        public int Age {
-        set { age = value; }
-        get{ return age; }
+
+        public int Age
+        {
+            set { age = value; }
+            get { return age; }
         }
     }
 }
