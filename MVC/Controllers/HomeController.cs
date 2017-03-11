@@ -69,5 +69,20 @@ namespace MVC.Controllers
             v = vendor;
             return View(v);
         }
+
+        public ActionResult LogIn()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ActionResult Edit()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ActionResult Index()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
