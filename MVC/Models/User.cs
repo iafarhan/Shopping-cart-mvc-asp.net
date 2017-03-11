@@ -16,7 +16,7 @@ namespace MVC.Models
         public string Password { get; set; }
 
         [Required(ErrorMessage = "*")]
-        [EmailAddress(ErrorMessage = "       Please enter valid email address!")]
+        [EmailAddress(ErrorMessage = "Please enter valid email address!")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "*")]
