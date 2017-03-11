@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "MainPage";
+    Layout = "~/Views/shared/_Layout.cshtml";
+}
+
+@Html.ActionLink("login", "LogIn", null, new { @class = "rightsidebuttons" })
+@Html.ActionLink("sign up", "SignUp", null, new { @class = "rightsidebuttons",@style="margin-right:10px;" })
+
+<img id="nslogo"  src="@Url.Content("~/images/NS1.png")" />
+<div class="nstextdiv">
+    <h2 style="color:white;font-size:90%;margin-left:+30px">Neutron Store is a place where<br /> you can find anything you want!</h2>
+    <p style="position:relative;margin-top:1px;font-weight:normal;font-size:60%;font-family:'Times New Roman';color:white">Neutron store include glut of variety. We provide<br /> vendors a facility to add products and the customers <br />can search for a specific product to buy.<br /> Everything is available in a single platform! </p>
+</div>
