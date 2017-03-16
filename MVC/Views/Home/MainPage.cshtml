@@ -3,19 +3,19 @@
     Layout = "~/Views/shared/_Layout.cshtml";
 }
 
-@Html.ActionLink("Login", "LogIn", null, new { @class = "rightsidebuttons" })
-@Html.ActionLink("SignUp", "SignUp", null, new { @class = "rightsidebuttons", @style = "margin-right:10px;" })
+@Html.ActionLink("Login", "LogIn", null, new {@class = "rightsidebuttons"})
+@Html.ActionLink("SignUp", "SignUp", null, new {@class = "rightsidebuttons", @style = "margin-right:10px;"})
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
 
         //$("#mainHeading").fadeOut();
 
         $(".nstextdiv")
-        .css('display', 'block')
-        .fadeOut(0)
-        .fadeIn(6000)
-        
+            .css('display', 'block')
+            .fadeOut(0)
+            .fadeIn(6000)
+
         //$('#nslogo').slideUp(1000);
         //$('#nslogo').slideDown(1000);
         // $('#nslogo').hide(1000);
@@ -29,12 +29,12 @@
 
     });
 </script>
-<img id="nslogo" src="@Url.Content("~/images/NS1.png")" />
-<div class="nstextdiv" style="display:none;">
+<img id="nslogo" src="@Url.Content("~/images/NS1.png")"/>
+<div class="nstextdiv" style="display: none;">
     <h2 style="color: white; font-size: 90%;" id="mainHeading">
-        Neutron Store is a place where<br /> you can find anything you want!
+        Neutron Store is a place where<br/> you can find anything you want!
     </h2>
     <p style="position: relative; margin-top: 1%; font-weight: normal; font-size: 60%; font-family: 'Times New Roman'; color: white">
-        Neutron store include glut of variety. We provide<br /> vendors a facility to add products and the customers <br />can get the product of their needs.<br /> Everything is available on a single platform!
+        Neutron store include glut of variety. We provide<br/> vendors a facility to add products and the customers <br/>can get the product of their needs.<br/> Everything is available on a single platform!
     </p>
 </div>

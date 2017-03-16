@@ -1,4 +1,4 @@
-﻿@model MVC.Models.User
+﻿@model MVC.Models.Vendor
 
 @{
     Layout = null;
@@ -9,19 +9,19 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width"/>
-    <title>DisplayDetails</title>
+    <title>DisplayDetailsVendor</title>
 </head>
 <body>
 <div>
-    <h4>User</h4>
+    <h4>Vendor</h4>
     <hr/>
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.OwnerName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.OwnerName)
         </dd>
 
         <dt>
@@ -33,6 +33,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Email)
         </dt>
 
@@ -41,26 +49,18 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Gender)
+            @Html.DisplayNameFor(model => model.Address)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Age)
+            @Html.DisplayFor(model => model.Address)
         </dd>
 
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new {/* id = Model.PrimaryKey */}) |
-    @Html.ActionLink("Back to Home", "MainPage")
+    @Html.ActionLink("Back to List", "MainPage")
 </p>
 </body>
 </html>
