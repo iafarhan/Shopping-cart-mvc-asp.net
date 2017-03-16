@@ -47,14 +47,13 @@ background:#FFFFFF;
     height: 150px;
     position: absolute;
     top: 34%;
-    left: 44%;
+    left: 43%;
 }
 
 .nstextdiv {
     position: absolute;
     top: 50%;
-    left: 50%;
-    margin-left: -250px;
+    left:33%;
     color:white;
     font-family:sans-serif;
     font-size: 200%;
