@@ -153,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Login.css" />
+    <Content Include="Content\validator.css" />
     <Content Include="JS\login.js" />
     <Content Include="neutronstore.mdb" />
     <Content Include="Content\bootstrap.css" />

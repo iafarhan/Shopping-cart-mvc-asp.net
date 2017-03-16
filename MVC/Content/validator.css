@@ -1,0 +1,293 @@
+﻿.Form {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
+.Form-title {
+    color: #00386a;
+    margin: 0 0 15px;
+}
+
+.Form-description {
+    color: #6d6665;
+}
+
+.Form-fields {
+    border-radius: 15px;
+    border: 1px solid #c5c1c0;
+    background-color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 24px 15px;
+}
+
+.Control-label {
+    color: #423e3d;
+    font-weight: bold;
+    -webkit-transition: color 300ms ease;
+    transition: color 300ms ease;
+}
+
+.Control-requirements {
+    background: pink;
+    border-top: none;
+    margin: -14px 0 15px;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: all 200ms ease;
+    transition: all 200ms ease;
+    padding: 0 9px;
+}
+
+.ControlInput {
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(197, 193, 192, 0) inset;
+    color: #6d6665;
+    margin: 0.8em 0;
+    border: 1px solid #c5c1c0;
+    padding: 0.6em 0.6em;
+    -webkit-transition: box-shadow 300ms ease-out;
+    transition: box-shadow 300ms ease-out;
+}
+
+    .ControlInput:hover {
+        box-shadow: 0 1px 3px #c5c1c0 inset;
+    }
+
+    .ControlInput:focus {
+        outline: #2bbee7 auto 3px;
+    }
+
+    .ControlInput:invalid:not(:focus):not(:placeholder-shown) {
+        border-color: red;
+        border-bottom: none;
+    }
+
+        .ControlInput:invalid:not(:focus):not(:placeholder-shown) + .Control-label {
+            color: red;
+        }
+
+            .ControlInput:invalid:not(:focus):not(:placeholder-shown) + .Control-label + .Control-requirements {
+                max-height: 100px;
+                padding: 9px;
+                border: 1px solid red;
+            }
+
+    .ControlInput:valid:not(:focus):not(:placeholder-shown) {
+        border-color: #5fa550;
+    }
+
+        .ControlInput:valid:not(:focus):not(:placeholder-shown) + .Control-label {
+            color: #5fa550;
+        }
+
+.Control-requirements--email,
+.ControlInput--email {
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
+    order: -1;
+}
+
+.Control-label--email {
+/*    -webkit-box-ordinal-group: -1;*/
+    -ms-flex-order: -2;
+    order: -2;
+}
+
+.ControlInput--password {
+    -webkit-box-ordinal-group: 1;
+    -ms-flex-order: 0;
+    order: 0;
+    padding-right: 50px;
+}
+
+.Control-label--password {
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
+    order: -1;
+    margin-bottom: -32px;
+}
+
+.Control-label--showPassword {
+    width: 32px;
+    position: relative;
+    top: 52px;
+    left: 100%;
+    text-align: right;
+    margin-left: -36px;
+}
+
+.Form-submit {
+    border: 1px solid #e7542b;
+    background-color: #e7542b;
+    border-radius: 3px;
+    color: #fff;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    pointer-events: none;
+    opacity: 0.6;
+    cursor: default;
+    -webkit-transition: opacity 300ms ease-out, max-width 150ms ease-out;
+    transition: opacity 300ms ease-out, max-width 150ms ease-out;
+    outline: none;
+    position: relative;
+    margin: auto;
+}
+
+    .Form-submit:hover {
+        background-color: #c83d17;
+    }
+
+    .Form-submit:active {
+        background-color: #9b2f11;
+        max-width: 50px;
+        overflow: hidden;
+        text-indent: 300px;
+    }
+
+        .Form-submit:active .Button-spinner {
+            opacity: 1;
+        }
+
+.ControlInput--email:valid ~ .ControlInput--password:valid ~ .Form-submit {
+    cursor: pointer;
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.Button-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -13px;
+    margin-top: -13px;
+    opacity: 0;
+}
+
+.show-password {
+    display: none;
+}
+
+    .show-password:checked ~ .ControlInput--password {
+/*        text-security: disc;*/
+        -webkit-text-security: disc;
+        -moz-text-security: disc;
+    }
+
+    .show-password:checked ~ .Control-label--showPassword .svg-toggle-password .closed-eye {
+        opacity: 1;
+        -webkit-transition: opacity 300ms ease, height 400ms ease;
+        transition: opacity 300ms ease, height 400ms ease;
+        width: 4px;
+        height: 44px;
+    }
+
+.svg-toggle-password {
+    fill: #008ed6;
+}
+
+    .svg-toggle-password .closed-eye {
+        opacity: 0;
+        height: 0;
+    }
+
+.Button {
+    padding: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.spinner {
+    -webkit-animation: dash 2s linear infinite;
+    animation: dash 2s linear infinite;
+    -webkit-animation-direction: normal;
+    animation-direction: normal;
+}
+
+@-webkit-keyframes dash {
+    0% {
+        stroke-dashoffset: 0;
+        stroke-dasharray: 150.6 100.4;
+    }
+
+    50% {
+        stroke-dasharray: 1 250;
+    }
+
+    100% {
+        stroke-dashoffset: 502;
+        stroke-dasharray: 150.6 100.4;
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dashoffset: 0;
+        stroke-dasharray: 150.6 100.4;
+    }
+
+    50% {
+        stroke-dasharray: 1 250;
+    }
+
+    100% {
+        stroke-dashoffset: 502;
+        stroke-dasharray: 150.6 100.4;
+    }
+}
+
+@-webkit-keyframes spinner-in {
+    0% {
+        opacity: 0;
+    }
+
+    20%, 80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes spinner-in {
+    0% {
+        opacity: 0;
+    }
+
+    20%, 80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+    background-color: #f1f2f1;
+    background-image: -webkit-linear-gradient(#e7e8e7, #f1f2f1);
+    background-image: linear-gradient(#e7e8e7, #f1f2f1);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 100%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}

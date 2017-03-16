@@ -23,8 +23,8 @@
 .grid {
     margin-left: auto;
     margin-right: auto;
-    max-width: 320px;
-    max-width: 20rem;
+    max-width: 500px;
+    max-width: 25rem;
     width: 90%;
 }
 
@@ -39,6 +39,12 @@
     padding: 0;
     position: absolute;
     width: 1px;
+}
+
+.validatorUsername {
+    position: absolute;
+    left: 550px;
+    top: 350px;
 }
 
 /* helpers/icon.css */
