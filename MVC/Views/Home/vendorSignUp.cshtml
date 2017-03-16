@@ -3,7 +3,7 @@
 @{
     Layout = null;
 }
-<link type="text/css" rel="stylesheet" href="~/stylesheet.css"/>
+<link type="text/css" rel="stylesheet" href="~/Content/stylesheet.css"/>
 
 <!DOCTYPE html>
 
@@ -24,7 +24,7 @@
     <div class="form-horizontal">
         <div class="shaddowsignup">
             <img style="width: 100px; height: 100px; float: left; margin-left: 20px;" src="@Url.Content("~/images/NS1.png")"/>
-            <h2 style="color: #EE4522; float: left; margin-left: -25px; margin-top: 43px; font-size: 150%;">eutron Store.</h2>
+            <h2 style="color: #EE4522; float: left; margin-left: -25px; margin-top: 43px; font-size: 150%;">Neutron Store.</h2>
         </div>
 
         <div class="signup" style="text-align: center;">
@@ -32,26 +32,32 @@
             @Html.ValidationSummary(true, "", new {@class = "text-danger"})
 
 
-            @Html.EditorFor(model => model.CompanyName, new {htmlAttributes = new {placeholder = "COMPANY NAME", @class = "textBoxes"}})
-            @Html.ValidationMessageFor(model => model.CompanyName, "", new {@class = "text-danger"})
+            @Html.EditorFor(model => model.CompanyName, new {htmlAttributes = new {placeholder = "Company name", @class = "textBoxes"}})
+            @Html.ValidationMessageFor(model => model.CompanyName, null, new { @style = "color:red;" })
+
 
             <br/>
             <br/>
 
-            @Html.EditorFor(model => model.OwnerName, new {htmlAttributes = new {placeholder = "OWNER NAME", @class = "textBoxes"}})
-            @Html.ValidationMessageFor(model => model.OwnerName)
+            @Html.EditorFor(model => model.OwnerName, new {htmlAttributes = new {placeholder = "Owner name", @class = "textBoxes"}})
+            @Html.ValidationMessageFor(model => model.OwnerName, null, new { @style = "color:red;" })
 
 
-            @Html.EditorFor(model => model.Email, new {htmlAttributes = new {placeholder = "ENTER YOUR EMAIL", @class = "textBoxes"}})
-            @Html.ValidationMessageFor(model => model.Email, "", new {@class = "text-danger"})
 
 
-            @Html.EditorFor(model => model.Password, new {htmlAttributes = new {placeholder = "PASSWORD", @class = "textBoxes", @type = "password"}})
-            @Html.ValidationMessageFor(model => model.Password, "", new {@class = "text-danger"})
+            @Html.EditorFor(model => model.Email, new {htmlAttributes = new {placeholder = "Enter your emil", @class = "textBoxes"}})
+            @Html.ValidationMessageFor(model => model.Email , null, new { @style = "color:red;" })
+
+
+
+
+            @Html.EditorFor(model => model.Password, new {htmlAttributes = new {placeholder = "Password", @class = "textBoxes", @type = "password"}})
+            @Html.ValidationMessageFor(model => model.Password, null, new { @style = "color:red;" })
             <br/>
             <br/>
-            @Html.EditorFor(model => model.Address, new {htmlAttributes = new {placeholder = "ADDRESS", @class = "textBoxes",}})
-            @Html.ValidationMessageFor(model => model.Address, "", new {@class = "text-danger"})
+            @Html.EditorFor(model => model.Address, new {htmlAttributes = new {placeholder = "Address", @class = "textBoxes",}})
+            @Html.ValidationMessageFor(model => model.Password, null, new { @style = "color:red;" })
+
 
             <br/><br/>
             <div class="form-group">

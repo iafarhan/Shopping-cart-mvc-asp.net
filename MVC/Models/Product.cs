@@ -7,30 +7,19 @@ namespace MVC.Models
 {
     public class Product
     {
-        string id, name, barcode, brandName, price;
+        string brandName;
 
-        public string ID
+        public Product(string brandName)
         {
-            set { id = value; }
-            get { return id; }
+            this.brandName = brandName;
         }
 
-        public string Name
-        {
-            set { name = value; }
-            get { return name; }
-        }
+        public string ID { set; get; }
 
-        public string BarCodeNumber
-        {
-            set { barcode = value; }
-            get { return barcode; }
-        }
+        public string Name { set; get; }
 
-        public string Price
-        {
-            set { price = value; }
-            get { return price; }
-        }
+        public string BarCodeNumber { set; get; }
+
+        public string Price { set; get; }
     }
 }

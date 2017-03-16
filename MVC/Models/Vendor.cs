@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data.OleDb;
 using System.Linq;
 using System.Web;
@@ -8,39 +10,22 @@ namespace MVC.Models
 {
     public class Vendor
     {
-        string ownerName, password, companyName, email, address;
+        [Required(ErrorMessage = "*")]
+        public string OwnerName { set; get; }
 
-        public string OwnerName
-        {
-            set { ownerName = value; }
-            get { return ownerName; }
-        }
+        [Required(ErrorMessage = "*")]
+        [PasswordPropertyText]
+        public string Password { set; get; }
 
+        [Required(ErrorMessage = "*")]
+        public string CompanyName { set; get; }
 
-        public string Password
-        {
-            set { password = value; }
-            get { return password; }
-        }
+        [Required(ErrorMessage = "*")]
+        [EmailAddress()]
+        public string Email { set; get; }
 
-
-        public string CompanyName
-        {
-            set { companyName = value; }
-            get { return companyName; }
-        }
-
-        public string Email
-        {
-            set { email = value; }
-            get { return email; }
-        }
-
-        public string Address
-        {
-            set { address = value; }
-            get { return address; }
-        }
+        [Required(ErrorMessage = "*")]
+        public string Address { set; get; }
 
 
         public static void InsertVendor(Vendor vendor)
@@ -61,19 +46,17 @@ namespace MVC.Models
                     "INSERT INTO vendors ([OwnerName], [VendorPassword], [CompanyName] ,[VendorEmail], [VendorAddress]) VALUES (@owner, @pass, @cn, @email, @address)",
                     dbConn);
 
-                cmd.Parameters.AddWithValue("@owner", vendor.ownerName);
-                cmd.Parameters.AddWithValue("@pass", vendor.password);
-                cmd.Parameters.AddWithValue("@cn", vendor.companyName);
-                cmd.Parameters.AddWithValue("@email", vendor.email);
-                cmd.Parameters.AddWithValue("@address", vendor.address);
+                cmd.Parameters.AddWithValue("@owner", vendor.OwnerName);
+                cmd.Parameters.AddWithValue("@pass", vendor.Password);
+                cmd.Parameters.AddWithValue("@cn", vendor.CompanyName);
+                cmd.Parameters.AddWithValue("@email", vendor.Email);
+                cmd.Parameters.AddWithValue("@address", vendor.Address);
 
                 // Execute command
                 try
                 {
-                    //cmd.Parameters["@user"].Value = "tooooooooooooooooooooooooooooooooooo long user name";
                     cmd.ExecuteNonQuery();
 
-                    //  Console.WriteLine("Row inserted successfully.");
                 }
                 catch (OleDbException exception)
                 {
