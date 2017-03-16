@@ -1,4 +1,7 @@
 ﻿@model MVC.Models.Login
+@{
+    Layout = null;
+}
 <link type="text/css" rel="stylesheet" href="~/Content/Login.css"/>
 
 <!DOCTYPE html>
@@ -38,7 +41,7 @@
                 <script src="~/JS/login.js" text="text/javascript"></script>
 
                 @Html.EditorFor(model => model.username, new {htmlAttributes = new {id = "login__username", oninvalid = "InvalidUsername(this);", type = "text", name = "username", @class = "form__input", placeholder = "Username", required = "required"}})
-                @Html.ValidationMessageFor(model => model.username, null, new {@style = "color:red;"})
+@*                @Html.ValidationMessageFor(model => model.username, null, new {@style = "color:red;"})*@
             </div>
 
             <div class="form__field">
@@ -50,7 +53,7 @@
                 </label>
                 @Html.EditorFor(model => model.password, new {htmlAttributes = new {id = "login__password", oninvalid = "InvalidPass(this);", type = "password", name = "password", @class = "form__input", placeholder = "Password", required = "required"}})
 
-                @Html.ValidationMessageFor(model => model.password, null, new {@style = "color:red;"})
+@*                @Html.ValidationMessageFor(model => model.password, null, new {@style = "color:red;"})*@
             </div>
 
             <div class="form__field">

@@ -155,6 +155,7 @@
     <Content Include="Content\Login.css" />
     <Content Include="Content\validator.css" />
     <Content Include="JS\login.js" />
+    <Content Include="JS\signup.js" />
     <Content Include="neutronstore.mdb" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />

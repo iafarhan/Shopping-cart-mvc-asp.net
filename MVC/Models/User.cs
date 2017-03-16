@@ -9,21 +9,21 @@ namespace MVC.Models
 {
     public class User
     {
-        [Required(ErrorMessage = "*")]
+//        [Required(ErrorMessage = "*")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "*")]
+//        [Required(ErrorMessage = "*")]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "*")]
-        [EmailAddress(ErrorMessage = "Please enter valid email address!")]
+//        [Required(ErrorMessage = "*")]
+//        [EmailAddress(ErrorMessage = "Please enter valid email address!")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "*")]
+//        [Required(ErrorMessage = "*")]
         public string Gender { get; set; }
 
-        [Required(ErrorMessage = "10-100")]
-        [Range(10, 100)]
+//        [Required(ErrorMessage = "10-100")]
+//        [Range(10, 100)]
         public int Age { get; set; }
 
         public static void InsertUser(User user)
