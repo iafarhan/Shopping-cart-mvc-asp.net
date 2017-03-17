@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 </head>
 
-<body>
+<body class="align">
 <div class="shaddowsignup">
     <a href="@Url.Action("MainPage", "Home")" title="List View" class="links">
         <img style="width: 100px; height: 100px; float: left; margin-left: -20px;" src="@Url.Content("~/images/NS1.png")"/>
@@ -24,7 +24,6 @@
     <h2 style="color: #EE4522; float: left; margin-left: -25px; margin-top: 43px; font-size: 150%;">eutron Store.</h2>
 </div>
 
-<body class="align">
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/jqueryval")
 
@@ -64,7 +63,7 @@
                 @*                @Html.ValidationMessageFor(model => model.password, null, new {@style = "color:red;"})*@
             </div>
 
-            <div class="form__field">
+            <div class="form__field" style="background:#188FFF;">
                 <input type="submit" value="Sign In">
             </div>
 
@@ -93,13 +92,7 @@
         </div>
     </div>
 }
-@if (ViewBag.Message != null)
-{
-    <script type="text/javascript">
-        alert("@ViewBag.Message");
-    </script>
-}
-</body>
+
 </body>
 
 </html>
