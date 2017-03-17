@@ -16,6 +16,14 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 </head>
 
+<body>
+<div class="shaddowsignup">
+    <a href="@Url.Action("MainPage", "Home")" title="List View" class="links">
+        <img style="width: 100px; height: 100px; float: left; margin-left: -20px;" src="@Url.Content("~/images/NS1.png")"/>
+    </a>
+    <h2 style="color: #EE4522; float: left; margin-left: -25px; margin-top: 43px; font-size: 150%;">eutron Store.</h2>
+</div>
+
 <body class="align">
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/jqueryval")
@@ -41,7 +49,7 @@
                 <script src="~/JS/login.js" text="text/javascript"></script>
 
                 @Html.EditorFor(model => model.username, new {htmlAttributes = new {id = "login__username", oninvalid = "InvalidUsername(this);", type = "text", name = "username", @class = "form__input", placeholder = "Username", required = "required"}})
-@*                @Html.ValidationMessageFor(model => model.username, null, new {@style = "color:red;"})*@
+                @*                @Html.ValidationMessageFor(model => model.username, null, new {@style = "color:red;"})*@
             </div>
 
             <div class="form__field">
@@ -53,7 +61,7 @@
                 </label>
                 @Html.EditorFor(model => model.password, new {htmlAttributes = new {id = "login__password", oninvalid = "InvalidPass(this);", type = "password", name = "password", @class = "form__input", placeholder = "Password", required = "required"}})
 
-@*                @Html.ValidationMessageFor(model => model.password, null, new {@style = "color:red;"})*@
+                @*                @Html.ValidationMessageFor(model => model.password, null, new {@style = "color:red;"})*@
             </div>
 
             <div class="form__field">
@@ -86,6 +94,7 @@
     </div>
 }
 
+</body>
 </body>
 
 </html>
