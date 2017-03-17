@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using MVC.Models;
 
 namespace MVC.Controllers
-{ //check
+{ 
 
     public class HomeController : Controller
     {
