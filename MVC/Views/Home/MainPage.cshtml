@@ -3,8 +3,10 @@
     Layout = "~/Views/shared/_Layout.cshtml";
 }
 
-@Html.ActionLink("Login", "LogIn", null, new {@class = "rightsidebuttons"})
-@Html.ActionLink("SignUp", "SignUp", null, new {@class = "rightsidebuttons", @style = "margin-right:10px;"})
+
+
+@Html.ActionLink("Login", "LogIn", null, new {@class = "rightsidebuttons" })
+@Html.ActionLink("Sign up", "SignUp", null, new {@class = "sign-up"})
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -29,6 +31,8 @@
 
     });
 </script>
+<img style="float:left;margin-top:0px;width:60px;height:60px;"src="~/NS.jpg" />
+<input type="text" class="search" placeholder="Search.."/>
 <img id="nslogo" src="@Url.Content("~/images/NS1.png")"/>
 <div class="nstextdiv" style="display: none;">
     <h2 style="color: white; font-size: 90%;" id="mainHeading">
