@@ -30,16 +30,22 @@ namespace MVC.Controllers
                 return RedirectToAction("SignUp");
             }
 
-            if (!TryUpdateModel(user)) {
-
+            if (!TryUpdateModel(user))
+            {
                 return RedirectToAction("SignUp");
             }
 
             Models.User u = new User();
             u = user;
-            Models.User.InsertUser(u);
+            Boolean check = Models.User.InsertUser(u);
 
-            return RedirectToAction("DisplayDetails");
+            if (check)
+                return RedirectToAction("DisplayDetails");
+            else
+            {
+                ViewBag.Message = "The email already exist.Please enter another email";
+                return View();
+            }
         }
 
         public ActionResult DisplayDetails()
@@ -68,7 +74,6 @@ namespace MVC.Controllers
             UpdateModel(vendor);
             Vendor v = new Vendor();
             Vendor.InsertVendor(vendor);
-
             return RedirectToAction("DisplayDetailsVendor");
         }
 

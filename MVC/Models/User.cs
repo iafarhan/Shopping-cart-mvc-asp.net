@@ -9,25 +9,26 @@ namespace MVC.Models
 {
     public class User
     {
-//        [Required(ErrorMessage = "*")]
+        [Required(ErrorMessage = "*")]
         public string Name { get; set; }
 
-//        [Required(ErrorMessage = "*")]
+        [Required(ErrorMessage = "*")]
         public string Password { get; set; }
 
-//        [Required(ErrorMessage = "*")]
-//        [EmailAddress(ErrorMessage = "Please enter valid email address!")]
+        [Required(ErrorMessage = "*")]
+        [EmailAddress(ErrorMessage = "Please enter valid email address!")]
         public string Email { get; set; }
 
-//        [Required(ErrorMessage = "*")]
+        [Required(ErrorMessage = "*")]
         public string Gender { get; set; }
 
-//        [Required(ErrorMessage = "10-100")]
-//        [Range(10, 100)]
+        [Required(ErrorMessage = "10-100")]
+        [Range(10, 100)]
         public int Age { get; set; }
 
-        public static void InsertUser(User user)
+        public static Boolean InsertUser(User user)
         {
+            bool sucess = false;
             var path = System.Web.HttpContext.Current.Server.MapPath(@"~/neutronstore.mdb");
 
             string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;" +
@@ -54,6 +55,7 @@ namespace MVC.Models
                 try
                 {
                     cmd.ExecuteNonQuery();
+                    sucess = true;
 
                     //  Console.WriteLine("Row inserted successfully.");
                 }
@@ -62,6 +64,7 @@ namespace MVC.Models
                     Console.WriteLine("SQL Error occured: " + exception);
                 }
             }
+            return sucess;
         }
     }
 }
