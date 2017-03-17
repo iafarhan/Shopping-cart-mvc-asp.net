@@ -9,6 +9,9 @@ namespace MVC.Models
 {
     public class Login
     {
+        /// <summary>
+        /// username is basically the email later on we can do the check on both the username and email
+        /// </summary>
 //        [Required(ErrorMessage = "Please enter your username")]
         public string username { set; get; }
 
@@ -22,7 +25,7 @@ namespace MVC.Models
             var path = System.Web.HttpContext.Current.Server.MapPath(@"~/neutronstore.mdb");
 
             var connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;" +
-                                      @"Data Source=" + path + ";Persist Security Info=False";
+                                   @"Data Source=" + path + ";Persist Security Info=False";
 
 
             OleDbConnection dbConn = new OleDbConnection(connectionString);
@@ -31,23 +34,26 @@ namespace MVC.Models
             dbConn.Open();
             using (dbConn)
             {
-                var name = login.username;
+                var email = login.username;
                 var pass = login.password;
 
-                OleDbCommand cmd = new OleDbCommand("Select * from users where Username='"+name+"' && UserPassword='"+pass+"'",dbConn);
+                OleDbCommand cmd =
+                    new OleDbCommand(
+                        "Select * FROM users WHERE UserEmail='" + email + "' && UserPassword='" + pass + "'", dbConn);
 
-             
+
                 // Execute command
                 try
                 {
-                    OleDbDataReader reader=cmd.ExecuteReader();
+                    OleDbDataReader reader = cmd.ExecuteReader();
                     if (reader != null && reader.Read() == true)
                     {
                         var username = reader.GetString(1).ToString();
-                        var pss= reader.GetString(1).ToString();
-                        if(username==name && pss==pass )
+                        var pss = reader.GetString(1).ToString();
+                        if (username == email && pss == pass)
                             sucess = true;
                     }
+                    sucess = true;
 
                     //  Console.WriteLine("Row inserted successfully.");
                 }
