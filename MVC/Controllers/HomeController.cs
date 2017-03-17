@@ -73,8 +73,16 @@ namespace MVC.Controllers
         {
             UpdateModel(vendor);
             Vendor v = new Vendor();
-            Vendor.InsertVendor(vendor);
-            return RedirectToAction("DisplayDetailsVendor");
+            bool check = Vendor.InsertVendor(vendor);
+            if (check)
+            {
+                return RedirectToAction("DisplayDetailsVendor");
+            }
+            else
+            {
+                ViewBag.Message = "The email already exists";
+                return View();
+            }
         }
 
         public ActionResult DisplayDetailsVendor()

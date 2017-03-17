@@ -28,8 +28,9 @@ namespace MVC.Models
         public string Address { set; get; }
 
 
-        public static void InsertVendor(Vendor vendor)
+        public static bool InsertVendor(Vendor vendor)
         {
+            bool sucess = false;
             var path = System.Web.HttpContext.Current.Server.MapPath(@"~/neutronstore.mdb");
 
             string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;" +
@@ -56,6 +57,7 @@ namespace MVC.Models
                 try
                 {
                     cmd.ExecuteNonQuery();
+                    sucess = true;
 
                 }
                 catch (OleDbException exception)
@@ -63,6 +65,7 @@ namespace MVC.Models
                     Console.WriteLine("SQL Error occured: " + exception);
                 }
             }
+            return sucess;
         }
     }
 }
