@@ -45,7 +45,7 @@ function InvalidEmail(textbox) {
     }
     return true;
 }
-function InvaliPass(textbox) {
+function InvalidPass(textbox) {
 
     if (textbox.value == '') {
         textbox.setCustomValidity('Please enter your Password.');

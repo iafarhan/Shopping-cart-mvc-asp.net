@@ -33,6 +33,15 @@ height:100px;
 background:#FFFFFF;
 
 }
+/**/
+/*.form__field {*/
+/*    display: -webkit-box;*/
+/*    display: -ms-flexbox;*/
+/*    display: flex;*/
+/*    margin: 14px;*/
+/*    margin: 0.875rem;*/
+/*}*/
+
 .signup {
     position:absolute;
     height: 400px;

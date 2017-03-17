@@ -40,9 +40,9 @@
 
                 <script src="~/JS/login.js" text="text/javascript"></script>
 
-                @Html.EditorFor(model => model.username, new {htmlAttributes = new {id = "login__username", oninvalid = "InvalidUsername(this);", type = "text", name = "username", @class = "form__input", placeholder = "Username", required = "required"}})
-@*                @Html.ValidationMessageFor(model => model.username, null, new {@style = "color:red;"})*@
-            </div>
+                @Html.EditorFor(model => model.username, new { htmlAttributes = new { id = "login__username", oninvalid = "InvalidUsername(this);", type = "text", name = "username", @class = "form__input", placeholder = "Username", required = "required" } })
+                @*                @Html.ValidationMessageFor(model => model.username, null, new {@style = "color:red;"})*@
+            </div>  
 
             <div class="form__field">
                 <label for="login__password">
