@@ -161,14 +161,14 @@ body {
 }
 
 .textBoxes {
-    border-style: none;
-    height: 30px;
+   border-style: none;
+
     border-bottom: 2px solid #188fff;
+   
     width: 300px;
-    margin-top: 30px;
-    align-content: center;
-    text-align: center;
-    background: rgba(50, 50, 50, 0.2);
+    margin-top:30px;
+    align-content:center;
+    text-align:center;
     
 }
 
@@ -177,7 +177,7 @@ body {
         text-decoration: none;
     }
 
-input[type=text] {
+.search {
     margin-top: 14px;
     float: left;
     width: 130px;
@@ -193,7 +193,7 @@ input[type=text] {
     border: 0px solid #dbdbdb;
 }
 
-    input[type=text]:focus {
+    .search:focus {
         width: 40%;
         outline: none;
         background-color: white;

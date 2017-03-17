@@ -36,9 +36,11 @@
 
             @Html.ValidationSummary(true, "", new {@class = "text-danger"})
 
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "Enter your name", @class = "textBoxes" } })
+            @Html.ValidationMessageFor(model => model.Name, null, new { @style = "color:red;" })
 
-            @Html.EditorFor(model => model.Name, new {htmlAttributes = new {placeholder = "Enter your name", @class = "textBoxes"}})
-            @Html.ValidationMessageFor(model => model.Name, null, new {@style = "color:red;"})
+
+
 
             <br/>
             <br/>
@@ -57,7 +59,7 @@
                 });
             }
 
-            @Html.DropDownListFor(model => model.Gender, listItems, "Enter gender", new {@class = "dd",})
+            @Html.DropDownListFor(model => model.Gender, listItems, "Enter gender", new {@class = "dd"})
             @Html.ValidationMessageFor(model => model.Gender, null, new {@style = "color:red;"})
             <br/>
             <br/>
