@@ -16,14 +16,13 @@ namespace MVC.Models
         public string Password { get; set; }
 
         [Required(ErrorMessage = "*")]
-        [EmailAddress(ErrorMessage = "Please enter valid email address!")]
+        [EmailAddress(ErrorMessage = "*")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "*")]
         public string Gender { get; set; }
 
-        [Required(ErrorMessage = "10-100")]
-        [Range(10, 100)]
+        [Required(ErrorMessage = "*")]
         public int Age { get; set; }
 
         public static Boolean InsertUser(User user)

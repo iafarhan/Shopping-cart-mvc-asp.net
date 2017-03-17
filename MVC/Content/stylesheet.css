@@ -123,8 +123,8 @@ padding:5px;
 }
 
 .textBoxes {
-/*    border-style: none;*/
-
+    border-style: none;
+height:30px;
     border-bottom: 2px solid #188fff;
    
     width: 300px;
@@ -132,8 +132,46 @@ padding:5px;
     align-content:center;
     text-align:center;
 }
+.textBoxes:focus{
+outline:none;
+text-decoration:none;
+
+
+}
+input[type=text] {
+    
+    margin-top:13px;
+    float:left;
+      width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('../searchicon.png');
+    background-size:20px;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    
+    
+     padding:8px 15px;
+                background:rgba(50, 50, 50, 0.2);
+                border:0px solid #dbdbdb;
+}
+
+input[type=text]:focus {
+    width: 40%;
+    outline:none;
+        background-color:white;
+
+
+}
 
 #navbar {
+
     font-size: small;
     font-family: Verdana;
     background: #A77DC2;

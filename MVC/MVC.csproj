@@ -157,6 +157,7 @@
     <Content Include="Content\validator.css" />
     <Content Include="JS\login.js" />
     <Content Include="JS\signup.js" />
+    <Content Include="neutron store.jpg" />
     <Content Include="neutronstore.mdb" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -165,6 +166,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\NS1.png" />
+    <Content Include="NS.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -186,6 +188,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Content\signup.css" />
     <Content Include="Content\stylesheet.css" />
+    <Content Include="searchicon.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
