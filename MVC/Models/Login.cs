@@ -18,7 +18,11 @@ namespace MVC.Models
 //        [Required(ErrorMessage = "PLease enter your password.")]
         public string password { set; get; }
 
-
+        /// <summary>
+        /// It will login the customer when he/she enters the correct login details
+        /// </summary>
+        /// <param name="login">The object from the view</param>
+        /// <returns>If the login is sucessful it will return true other wise false</returns>
         public static Boolean CheckLogin(Login login)
         {
             bool sucess = false;
@@ -36,10 +40,8 @@ namespace MVC.Models
             {
                 var email = login.username;
                 var pass = login.password;
-
-                OleDbCommand cmd =
-                    new OleDbCommand(
-                        "Select * FROM users WHERE UserEmail='" + email + "' && UserPassword='" + pass + "'", dbConn);
+                string query = "SELECT * FROM users WHERE UserEmail= '" + email + "' and UserPassword= '" + pass + "';";
+                OleDbCommand cmd =new OleDbCommand(query, dbConn);
 
 
                 // Execute command
@@ -49,13 +51,11 @@ namespace MVC.Models
                     if (reader != null && reader.Read() == true)
                     {
                         var username = reader.GetString(1).ToString();
-                        var pss = reader.GetString(1).ToString();
+                        var pss = reader.GetString(2).ToString();
                         if (username == email && pss == pass)
                             sucess = true;
                     }
-                    sucess = true;
 
-                    //  Console.WriteLine("Row inserted successfully.");
                 }
                 catch (OleDbException exception)
                 {

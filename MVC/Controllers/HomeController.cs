@@ -6,8 +6,7 @@ using System.Web.Mvc;
 using MVC.Models;
 
 namespace MVC.Controllers
-{ 
-
+{
     public class HomeController : Controller
     {
         static Models.User user = new User();
@@ -114,16 +113,17 @@ namespace MVC.Controllers
 
             Models.Login l = new Login();
             l = Login;
-            Boolean check = Models.Login.CheckLogin(l);
+            bool check = Models.Login.CheckLogin(l);
 
             if (check)
-                return RedirectToAction("MainPage");
+                return RedirectToAction("Dashboard");
             else
             {
                 ViewBag.Message = "The username or password is incorrect! Please try again";
                 return View();
             }
         }
+
         public ActionResult Edit()
         {
             throw new NotImplementedException();
@@ -132,6 +132,11 @@ namespace MVC.Controllers
         public ActionResult Index()
         {
             throw new NotImplementedException();
+        }
+
+        public ActionResult Dashboard()
+        {
+            return View();
         }
     }
 }

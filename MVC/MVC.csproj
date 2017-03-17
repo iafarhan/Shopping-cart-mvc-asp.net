@@ -205,6 +205,7 @@
     <Content Include="Views\Home\vendorSignUp.cshtml" />
     <Content Include="Views\Home\DisplayDetailsVendor.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
