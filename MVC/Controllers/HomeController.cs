@@ -12,6 +12,7 @@ namespace MVC.Controllers
     {
         static Models.User user = new User();
         static Models.Vendor vendor = new Vendor();
+        static Login Login = new Login();
 
 
         [HttpGet]
@@ -97,6 +98,32 @@ namespace MVC.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ActionName("Login")]
+        public ActionResult Login_post()
+        {
+            if (ModelState.IsValid == false)
+            {
+                return RedirectToAction("Login");
+            }
+
+            if (!TryUpdateModel(Login))
+            {
+                return RedirectToAction("Login");
+            }
+
+            Models.Login l = new Login();
+            l = Login;
+            Boolean check = Models.Login.CheckLogin(l);
+
+            if (check)
+                return RedirectToAction("MainPage");
+            else
+            {
+                ViewBag.Message = "The username or password is incorrect! Please try again";
+                return View();
+            }
+        }
         public ActionResult Edit()
         {
             throw new NotImplementedException();
