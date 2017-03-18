@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Login.css" />
+    <Content Include="Content\search.css" />
     <Content Include="Content\validator.css" />
     <Content Include="JS\login.js" />
     <Content Include="JS\signup.js" />

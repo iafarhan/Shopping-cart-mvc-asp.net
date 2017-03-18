@@ -1,0 +1,24 @@
+﻿body { }
+
+
+.search {
+    margin-top: 14px;
+    float: left;
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    padding: 8px 15px;
+    background: rgba(50, 50, 50, 0.2);
+    border: 0px solid #dbdbdb;
+}
+
+.search:focus {
+    width: 40%;
+    outline: none;
+    background-color: white;
+}
