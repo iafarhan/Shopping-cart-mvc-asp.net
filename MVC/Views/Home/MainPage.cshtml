@@ -5,8 +5,8 @@
 
 
 <div>
-    @Html.ActionLink("Login", "LogIn", null, new { @class = "rightsidebuttons" })
-    @Html.ActionLink("Sign up", "SignUp", null, new { @class = "sign-up" })
+    @Html.ActionLink("Login", "LogIn", null, new {@class = "rightsidebuttons"})
+    @Html.ActionLink("Sign up", "SignUp", null, new {@class = "sign-up"})
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -34,8 +34,11 @@
     });
 </script>
 
-<img style="float: left; margin-top: 0px; width: 60px; height: 60px;"src="~/NS.jpg"/>
-<input type="text" class="search" placeholder="Search.."/>
+<div>
+    <img style="float: left; margin-top: 0px; width: 60px; height: 60px;" src="~/NS.jpg"/>
+    <input type="text" class="search" placeholder="Search.."/>
+</div>
+
 <img id="nslogo" src="@Url.Content("~/images/NS1.png")"/>
 <div class="nstextdiv" style="display: none;">
     <h2 style="color: white; font-size: 90%;" id="mainHeading">
