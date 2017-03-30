@@ -10,7 +10,7 @@ namespace MVC.Models
         
 
         public string Name { set; get; }
-        public int Quantity{ set; get; }
+        public string Quantity{ set; get; }
         
         public string Price { set; get; }
 

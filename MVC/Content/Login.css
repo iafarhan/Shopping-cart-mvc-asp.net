@@ -1,7 +1,10 @@
 ﻿/* config.css */
 
 /* helpers/align.css */
-
+body {
+    align-content: center;
+    text-align: center;
+}
 .align {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -136,12 +139,17 @@ input {
     display: flex;
     margin: 14px;
     margin: 0.875rem;
+    width:380px;
 }
 
 .form__input {
+
+align-content:center;
+text-align:center;
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
+    
 }
 
 /* modules/login.css */
