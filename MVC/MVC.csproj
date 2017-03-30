@@ -155,7 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Login.css" />
-    <Content Include="Content\NavBarProduct.css" />
     <Content Include="Content\Productscss.css" />
     <Content Include="Content\search.css" />
     <Content Include="Content\validator.css" />

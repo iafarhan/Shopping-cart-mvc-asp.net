@@ -1,17 +1,35 @@
-﻿.header {
+﻿.header1 {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #cc5350;
-    color: #fff;
-    z-index: 1000;
-    height: 100%;
-    overflow: hidden;
-    -webkit-transition: height 0.3s;
-    -moz-transition: height 0.3s;
-    transition: height 0.3s;
-    text-align: center;
-    line-height: 160px;
-    background: url(http://subtlepatterns.com/patterns/footer_lodyas.png);
+    width:100%;
+    height:100%;
+    background: white;
+    text-align:center;
+
 }
+#navbar {
+margin-top:5px;
+    width: 100%;
+    height: 30px;
+    background: #cccccc;
+    margin-top: 40px;
+    display: none;
+}
+
+
+body {
+    text-align: center;
+}
+
+.textBoxes {
+    border-style: none;
+    border-bottom: 2px solid #CCCCCC;
+    width: 300px;
+    margin-top: 30px;
+    align-content: center;
+    text-align: center;
+}
+
+    .textBoxes:focus {
+        outline: none;
+        text-decoration: none;
+    }

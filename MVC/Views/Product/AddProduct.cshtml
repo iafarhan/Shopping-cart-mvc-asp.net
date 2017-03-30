@@ -5,48 +5,101 @@
     ViewBag.Title = "AddProduct";
 }
 <link type="text/css" href="~/Content/Productscss.css" rel="stylesheet" />
-<link type="text/css" href="~/Content/NavBarProduct.css" rel="stylesheet" />
-<body>
-    <div class="header">
-        <h1 id="HeaderText" style="font-size:600%;display:none;margin-top:20%">Neutron Store.</h1>
 
-    </div>
-    <div style="margin-top:120px;">
-        <ul class="nav">
-            <li class="navItem"><a href="#">Home</a></li>
-            <li class="navItem"><a href="#">Add</a></li>
-            <li class="navItem"><a href="#">View</a></li>
-            <li class="navItem"><a href="#">Delete</a></li>
-            <li class="navItem"><a href="#">update</a></li>
-            <li class="navItem"><a href="#">about</a></li>
-        </ul>
-    </div>
-        
-    
+
+<body style="background:white">
+
     <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
     <script type="text/javascript">
+        $(document).ready(function () {
 
-        $(function () {
             $('#HeaderText').show(1000);
-            //wait(2000);
-            window.setTimeout(
-                function () {
-                    $('.header').css({
-                        'height': '18%',
-                        
+            window.setTimeout(function () {
+                $('.header1').css({
+                    'height': '120px',
+                    'background': '#cccccc'
 
-                    });
-                    $('#HeaderText').css({
-                        'font-size': '30px',
-                        'margin-top': '0%'
 
-                    });                },
-                2000
-            );
-           
-          
+                })
+               
+                $('#HeaderText').css({
+                    'font-size': '60px',
+
+                    'margin-top': '25px',
+                   
+                    'background':'white'
+                });
+                $('#navbar').show();
+                $('#addProduct').show();
+            }, 2000);
+            
         });
     </script>
+    <div class="header1" style="background:black">
+        <h1 id="HeaderText" style="font-size:600%;display:none;color:#cccccc;margin-top:20%;">Neutron Store.</h1>
+        <div id="navbar" ></div>
+        <div id="addProduct" style="display:none;" >
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            <h4>Product</h4>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "textBoxes", placeHolder = "product name" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "textBoxes",placeHolder="price for each item" } })
+                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "textBoxes", placeHolder = "quantity available" } })
+                    @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "textBoxes", placeHolder = "Description" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+
+        
+        
+        
+        
+        
+        
+        
+        </div>
+    </div>
+    
+
 </body>
 
 @section Scripts {

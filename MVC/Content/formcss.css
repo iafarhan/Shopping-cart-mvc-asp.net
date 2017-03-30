@@ -1,0 +1,18 @@
+﻿
+body{
+text-align:center;
+}
+
+.textBoxes {
+    border-style: none;
+    border-bottom: 2px solid #CCCCCC;
+    width: 300px;
+    margin-top: 30px;
+    align-content: center;
+    text-align: center;
+}
+
+    .textBoxes:focus {
+        outline: none;
+        text-decoration: none;
+    }
