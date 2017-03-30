@@ -5,60 +5,50 @@
     ViewBag.Title = "AddProduct";
 }
 <link type="text/css" href="~/Content/Productscss.css" rel="stylesheet" />
-
-<header>
-    <nav>
-        <a href="">Home</a>
-        <a href="">About</a>
-        <a href="">Gallery</a>
-        <a href="">Contact</a>
-    </nav>
-</header>
+<link type="text/css" href="~/Content/NavBarProduct.css" rel="stylesheet" />
 <body>
-    <div class="header" >
-        <h1  id="HeaderText" style="font-size:600%;display:none;margin-top:20%">Neutron Store.</h1>
-    </div>
-    <div class="content">
-    </div>
+    <div class="header">
+        <h1 id="HeaderText" style="font-size:600%;display:none;margin-top:20%">Neutron Store.</h1>
 
+    </div>
+    <div style="margin-top:120px;">
+        <ul class="nav">
+            <li class="navItem"><a href="#">Home</a></li>
+            <li class="navItem"><a href="#">Add</a></li>
+            <li class="navItem"><a href="#">View</a></li>
+            <li class="navItem"><a href="#">Delete</a></li>
+            <li class="navItem"><a href="#">update</a></li>
+            <li class="navItem"><a href="#">about</a></li>
+        </ul>
+    </div>
+        
+    
     <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    $(function () {
-        $('#HeaderText').show(1000);
-        var shrinkHeader = 300;
-        $(window).scroll(function () {
-            var scroll = getCurrentScroll();
-            
-            if (scroll >= shrinkHeader) {
-                $('.header').addClass('shrink');
-                $('#HeaderText').css({
-                    'font-size': '30px',
-                    'margin-top': '0%'
+        $(function () {
+            $('#HeaderText').show(1000);
+            //wait(2000);
+            window.setTimeout(
+                function () {
+                    $('.header').css({
+                        'height': '18%',
+                        
 
+                    });
+                    $('#HeaderText').css({
+                        'font-size': '30px',
+                        'margin-top': '0%'
 
-                });
-            }
-            else {
-                $('.header').removeClass('shrink');
-                $('#HeaderText').css({
-                    'font-size': '600%',
-                    'margin-top': '20%'
-
-
-                });
-            }
+                    });                },
+                2000
+            );
+           
+          
         });
-        function getCurrentScroll() {
-            return window.pageYOffset || document.documentElement.scrollTop;
-        }
-    });
-</script>
+    </script>
 </body>
-           <div>
-               @Html.ActionLink("Back to List", "Index")
-           </div>
 
-           @section Scripts {
-               @Scripts.Render("~/bundles/jqueryval")
-           }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
