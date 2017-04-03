@@ -4,6 +4,31 @@
 }
 <link type="text/css" rel="stylesheet" href="~/Content/Login.css" />
 <link type="text/css" rel="stylesheet" href="~/Content/head.css" />
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #AAA;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #ededed;
+}
+</style>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +40,6 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 </head>
-
 <body  style="align-content:center;text-align:center; -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;  -webkit-box-pack: center;
@@ -27,12 +51,16 @@
     <div class="banner" style="align-content:center;text-align:center;margin:10px;">
         <h3 >Vendor's View</h3>
     </div>
-        <div class="shaddowsignup">
-            <h2 style="color:black;font-size:300%">add product</h2>
-        </div>
-   
+        
+    <ul>
+        <li><a class="active" href="#home" id="addBtn">Add</a></li>
+        <li><a href="#news">View</a></li>
+        <li><a href="#contact">Update</a></li>
+        <li><a href="#about">Delete</a></li>
+    </ul>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-   
+    <script src="~/JS/products.js" text="text/javascript"></script>
+
             @Scripts.Render("~/bundles/jquery")
             @Scripts.Render("~/bundles/jqueryval")
 
@@ -43,10 +71,8 @@
                 <div class="grid" style="text-align:center">
 
 
-                    <div class="form login">
+                    <div class="form login" id="addDiv" style="display:none;" >
 
-
-                        <script src="~/JS/products.js" text="text/javascript"></script>
 
                         <div class="form__field">
 
@@ -87,7 +113,17 @@
                     </div>
                 </div>
             }
+            <script type="text/javascript">
 
+                $(document).ready(function () {
+
+
+                    $('#addBtn').click(function(){
+
+                        $('#addDiv').show(1000);
+                    })
+                })
+            </script>
 </body>
 
 </html>
