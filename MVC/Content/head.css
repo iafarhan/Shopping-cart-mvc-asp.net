@@ -1,0 +1,45 @@
+﻿.banner {
+
+    background: #EDEDED;
+    border: solid 2px #AAA;
+    box-shadow: 0 0 8px #aaa;
+    border-radius: 0 0 5px 5px;
+    width:95%;
+}
+
+.banner h3 {
+    padding: 15px 5px;
+    margin: 10px -20px;
+    border: solid 3px #AAA;
+    position:relative;
+    font-weight: normal;
+    font-size: 20px;
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+    text-align: center;
+    border-radius: 3px;
+    
+    background: #efefef;
+    background: linear-gradient(top, #efefef, #dfdfdf);
+    
+}
+
+.banner h3:after, .banner h3:before {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    background: #555;
+    border:solid 2px #aaa;
+    width: 25px;
+    height: 20px;
+    z-index: -1;
+}
+
+.banner h3:after {
+     left: 2px;
+     transform: rotate(120deg);
+}
+
+.banner h3:before {
+    right: 2px;
+    transform: rotate(60deg);
+}

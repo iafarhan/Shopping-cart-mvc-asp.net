@@ -154,6 +154,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\head.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\Productscss.css" />
     <Content Include="Content\search.css" />
