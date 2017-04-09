@@ -74,7 +74,7 @@ li a:hover {
                     <div class="form login" id="addDiv" style="display:none;" >
 
 
-                        <div class="form__field">
+                        <div class="form__field" >
 
 
 
@@ -105,12 +105,47 @@ li a:hover {
                         </div>
 
                         <div class="form__field" style="background: #188FFF;">
-                            <input type="submit" value="add" id="submitbtn" style="background:#188FFF;">
+                            <input type="submit" value="add" id="submitbtn" style="background:#AAA;">
                         </div>
 
 
 
                     </div>
+
+
+
+
+
+
+
+
+                    <div class="form login" id="deleteDiv" style="display:none;">
+
+
+                        <div class="form__field">
+
+
+
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { id = "productNameDel", oninvalid = "InvalidProductName(this);", type = "text", name = "productname", @class = "form__input", placeholder = "product name", required = "required" } })
+                            @*                @Html.ValidationMessageFor(model => model.username, null, new {@style = "color:red;"})*@
+                        </div>
+
+                   
+                        <div class="form__field" style="background: #188FFF;">
+                            <input type="submit" value="delete" id="deletebtn" style="background:#AAA;">
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+
+
+
                 </div>
             }
             <script type="text/javascript">
