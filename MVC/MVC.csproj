@@ -165,6 +165,7 @@
     <Content Include="Content\head.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\Productscss.css" />
+    <Content Include="Content\Products\View.css" />
     <Content Include="Content\search.css" />
     <Content Include="Content\validator.css" />
     <Content Include="JS\login.js" />

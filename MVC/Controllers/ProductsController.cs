@@ -64,6 +64,7 @@ namespace MVC.Controllers
             return View(product);
         }
 
+
         // GET: Products/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -84,7 +85,7 @@ namespace MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,Name,Quantity,Price,Description,ProductImage")] Product product)
+        public ActionResult Edit([Bind(Include = "id,Name,Quantity,Price,Description,ProductImage,Vendor")] Product product)
         {
             if (ModelState.IsValid)
             {

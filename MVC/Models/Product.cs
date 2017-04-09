@@ -10,6 +10,8 @@ public partial class Product
     public string Description { get; set; }
     public byte[] ProductImage { get; set; }
     public int id { get; set; }
+    [Required]
+    public string Vendor { get; set; }
 }
 
 public class ProductDBContext : DbContext
