@@ -142,8 +142,8 @@ ul {
     position: absolute;
     top: 0;
     left: 0;
-    width: 228px;
-    height: 186px;
+    width: 230px;
+    height: 195px;
     border: 1px solid rgba(51, 51, 51, 1);
     border-bottom: 0;
     background: rgba(255, 255, 255, 0.5);
@@ -156,9 +156,10 @@ ul {
     .addPro a {
         text-decoration: none;
         display: inline-block;
-        width: 157px;
+        width: 100px;
         height: 40px;
-        margin: 100px auto auto 40px;
+        margin-top:20px;
+    margin-left:60px;
         background-color: #333;
         text-align: center;
         font: 14px/40px'OpenSans-Italic', sans-serif;
@@ -173,8 +174,8 @@ ul {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 208px;
-    height: 36px;
+    width: 230px;
+    height:50px;
     border: 1px solid rgba(51, 51, 51, 0);
     -webkit-transition: opacity 1s;
     -moz-transition: opacity 1s;
