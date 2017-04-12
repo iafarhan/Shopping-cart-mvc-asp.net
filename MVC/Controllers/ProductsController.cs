@@ -18,6 +18,9 @@ namespace MVC.Controllers
         {
             return View(db.products.ToList());
         }
+        public ActionResult ShowToCustomers() {
+            return View(db.products.ToList());
+        }
 
         // GET: Products/Details/5
         public ActionResult Details(int? id)
@@ -85,14 +88,25 @@ namespace MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,Name,Quantity,Price,Description,ProductImage,Vendor")] Product product)
+        public ActionResult Edit(Product product, HttpPostedFileBase newImage)
         {
-            if (ModelState.IsValid)
+
+        if(newImage!=null){
+
+
+
+                product.ProductImage = new byte[newImage.ContentLength];
+                newImage.InputStream.Read(product.ProductImage, 0, newImage.ContentLength);
+
+
+                if (ModelState.IsValid)
             {
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            }
+
             return View(product);
         }
 

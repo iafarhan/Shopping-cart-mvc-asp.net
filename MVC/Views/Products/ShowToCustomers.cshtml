@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/shared/defaultLayout.cshtml";
+}
+<link type="text/css" rel="stylesheet" href="~/Content/Products/View.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="wrapper">
+    <div class="view">
+        <p>View as:</p>
+        <a href="#" class="icon-grid"></a>
+        <a href="#" class="icon-list"></a>
+
+    </div>
+
+    <div class="products category">
+        <ul class="">
+
+
+            @foreach (var item in Model)
+            {
+
+            <li>
+                <div class="wrapimg">
+
+                    @{
+
+                        var base64 = Convert.ToBase64String(item.ProductImage);
+                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+
+                    }
+                    <img src="@Url.Content(imgSrc)" height="240" width="220" />
+
+                    <div class="addPro">
+
+                        @Html.ActionLink("Add to Chart", "Chart", new { id = item.id }) 
+
+                   </div>
+                </div>
+
+
+                <div class="titlePro">
+                    <a href="javascript:;">@item.Name</a>
+                    <span>$@item.Price</span>
+
+                    <p class="descTitle">Detailed item information</p>
+                    <p>|@item.Description</p>
+                </div>
+            </li>
+
+
+
+
+                        }
+        </ul>
+    </div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        //$("#mainHeading").fadeOut();
+
+        $(".view a").on('click', function () {
+            $('.products ul').toggleClass('list');
+            return false;
+        });
+    });
+</script>
