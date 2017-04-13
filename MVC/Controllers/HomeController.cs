@@ -20,7 +20,9 @@ namespace MVC.Controllers
         {
             return View();
         }
-
+        public ActionResult Payment() {
+            return View();
+        }
         [HttpPost]
         [ActionName("SignUp")]
         public ActionResult SignUp_post()
