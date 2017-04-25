@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC.Models;
+using System.IO;
 
 namespace MVC.Controllers
 {
@@ -48,7 +49,14 @@ namespace MVC.Controllers
 
 
         }
+        public ActionResult GetImage(int id)
+        {
+            Vendor v = db.Vendors.Where(x => x.Vid ==id ).FirstOrDefault();
+            byte[] b = v.VImage.ToArray();
 
+            MemoryStream ms = new MemoryStream(b);
+            return File(ms.ToArray(), "image/jpg");
+        }
         public ActionResult DisplayDetails(int? id)
         {
 
@@ -67,6 +75,8 @@ namespace MVC.Controllers
         [ActionName("Login")]
         public ActionResult LogIn()
         {
+            //Session["VendorName"] = null;
+            //Session["VendorId"] = null;
             return View();
         }
 
@@ -80,7 +90,9 @@ namespace MVC.Controllers
             Vendor v = db.Vendors.Where(x => x.VEmail == email && x.VPassword == upass).FirstOrDefault();
             if (v != null)
             {
-                TempData["VName"] = v.VName;
+                Session["VendorName"] = v.VName;
+                Session["VendorId"] = v.Vid;
+
                 return RedirectToAction("Index", "Products");
             }
             else

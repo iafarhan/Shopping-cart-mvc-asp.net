@@ -16,6 +16,7 @@ namespace MVC.Controllers
         // GET: Products
         public ActionResult Index()
         {
+            if (Session["VendorId"] == null) { return RedirectToAction("MainPage", "Home"); }
             return View(db.Products.ToList());
         }
         public ActionResult ShowToCustomers() {
@@ -40,9 +41,9 @@ namespace MVC.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
-            if (TempData["VName"] != null)
+            if (Session["VendorName"] != null)
             {
-                ViewBag.VendorName = TempData["VName"].ToString();
+                ViewBag.VendorName = Session["VendorName"].ToString();
                 return View();
             }
             else
@@ -66,6 +67,7 @@ namespace MVC.Controllers
 
                 if (ModelState.IsValid)
                 {
+                    product.VendorId = int.Parse(Session["VendorId"].ToString());
                     db.Products.InsertOnSubmit(product);
                     db.SubmitChanges();
                     return RedirectToAction("Index");

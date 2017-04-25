@@ -38,12 +38,15 @@ namespace MVC.Controllers
                 }
                 else
                 {
-                    v.VImage = new byte[VendorImg.ContentLength];
-                    VendorImg.InputStream.Read(v.VImage.ToArray(), 0, VendorImg.ContentLength);
+                    byte[] img = new byte[VendorImg.ContentLength];
+                    VendorImg.InputStream.Read(img, 0, VendorImg.ContentLength);
+                    v.VImage = new System.Data.Linq.Binary(img);
+
                     db.Vendors.InsertOnSubmit(v);
                   
                     db.SubmitChanges();
-                    return RedirectToAction("Index", "Products");
+                    ModelState.Clear();
+                    return RedirectToAction("MainPage", "Home");
                 }
             }
 

@@ -357,7 +357,7 @@ namespace MVC.Models
 		
 		private string _VPassword;
 		
-		private System.Data.Linq.Binary _VImage;
+		private System.Data.Linq.Binary  _VImage;
 		
 		private EntitySet<Product> _Products;
 		
@@ -464,11 +464,11 @@ namespace MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VImage", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
-		public byte[] VImage
+		public System.Data.Linq.Binary VImage
 		{
 			get
 			{
-				return this._VImage.ToArray();
+				return this._VImage;
 			}
 			set
 			{
