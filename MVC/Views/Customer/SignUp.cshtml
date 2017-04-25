@@ -1,0 +1,80 @@
+﻿@model MVC.Models.Customer
+
+@{
+    Layout = null;
+}
+<link type="text/css" rel="stylesheet" href="~/Content/stylesheet.css"/>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>SignUp</title>
+</head>
+<body style="background: #F9F9FA;">
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $('input').blur();
+   
+</script>
+   
+    
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="shaddowsignup">
+            <a href="@Url.Action("MainPage", "Home")" title="List View" class="links">
+                <img style="width: 100px; height: 100px; float: left; margin-left: 20px;" src="@Url.Content("~/images/NS1.png")"/>
+            </a>
+            <h2 style="color: #EE4522; float: left; margin-left: -25px; margin-top: 43px; font-size: 150%;">eutron Store.</h2>
+        </div>
+
+        <div class="signup" style="text-align: center;">
+
+            @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+
+            @Html.EditorFor(model => model.VName, new { htmlAttributes = new { placeholder = "Enter your name", @class = "textBoxes",required="required" } })
+            @Html.ValidationMessageFor(model => model.VName, null, new { @style = "color:red;" })
+
+
+
+
+            <br/>
+            <br/>
+            <br/>
+        
+            
+
+            @Html.EditorFor(model => model.UEmail, new {htmlAttributes = new {placeholder = "Enter your email", @class = "textBoxes", required = "required", @type = "email" } })
+            @Html.ValidationMessageFor(model => model.UEmail, null, new {@style = "color:red;"})
+
+
+            @Html.EditorFor(model => model.UPassword, new {htmlAttributes = new {placeholder = "PASSWORD", @class = "textBoxes", @type = "password", required = "required" } })
+            @Html.ValidationMessageFor(model => model.UPassword, null, new {@style = "color:red;"})
+            <br/>
+            <br/>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="signupbtn"/>
+                </div>
+            </div>
+            <br/>
+
+            @Html.ActionLink("SignUp as a Vendor", "vendorSignUp", null, new {@style = "color:#188FFF;text-decoration:none;"})
+        </div>
+        @Html.ValidationSummary(false, "", new { @class = "text-danger", @Style = "color:red" })
+
+
+
+
+    </div>
+}
+   
+
+</body>
+</html>

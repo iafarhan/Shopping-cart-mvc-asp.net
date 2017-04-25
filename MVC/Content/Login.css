@@ -128,6 +128,7 @@ input {
 
     .form input[type='password'],
     .form input[type='text'],
+    .form input[type='email'],
     .form input[type='submit'] {
         width: 100%;
     }
@@ -159,6 +160,7 @@ text-align:center;
 
     .login label,
     .login input[type='text'],
+    .form input[type='email'],
     .login input[type='password'],
     .login input[type='submit'] {
         border-radius: 0.25rem;
@@ -177,12 +179,14 @@ text-align:center;
     }
 
     .login input[type='password'],
+    .login input[type='email'],
     .login input[type='text'] {
         background-color: #3b4148;
         border-bottom-left-radius: 0;
         border-top-left-radius: 0;
     }
-
+        .login input[type='email']:focus,
+        .login input[type='email']:hover,
         .login input[type='password']:focus,
         .login input[type='password']:hover,
         .login input[type='text']:focus,

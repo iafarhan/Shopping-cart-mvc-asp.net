@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DbHandler">
+  <DataContextMoniker Name="/DbHandlerDataContext" />
+  <nestedChildShapes>
+    <classShape Id="44a84601-80a5-4a22-9cac-b53cf8744eff" absoluteBounds="3.5, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DbHandlerDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="62c48fec-7c1f-4e9d-8436-f4d945f441e3" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9c2e6124-bf72-485d-ae56-3ddd7d3f9f0a" absoluteBounds="0.75, 1.125, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/DbHandlerDataContext/Vendor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f2775b76-1ba0-482e-9b62-cbed77578820" absoluteBounds="0.765, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="76cbe795-fa9f-42c0-b22d-4ea77c76c7e7" absoluteBounds="0.75, 4.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/DbHandlerDataContext/Customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f7aaf16d-ff71-4798-9d8e-00486b1b217c" absoluteBounds="0.765, 5.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.01044840494792); (3.5 : 2.01044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DbHandlerDataContext/Vendor/Vendor_Product" />
+      <nodes>
+        <classShapeMoniker Id="9c2e6124-bf72-485d-ae56-3ddd7d3f9f0a" />
+        <classShapeMoniker Id="44a84601-80a5-4a22-9cac-b53cf8744eff" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

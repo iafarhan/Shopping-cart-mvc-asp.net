@@ -1,4 +1,4 @@
-﻿@model MVC.Models.Login
+﻿
 @{
     Layout = null;
 }
@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 </head>
 
-<body class="align">
+<body class="align" style="background:black">
 <div class="shaddowsignup">
 <h2 style="color:white;font-size:300%">Neutron.</h2>
 </div>
@@ -25,7 +25,7 @@
 @Scripts.Render("~/bundles/jqueryval")
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Login","Home"))
 {
     @Html.AntiForgeryToken()
     <div class="grid">
@@ -44,8 +44,8 @@
 
                 <script src="~/JS/login.js" text="text/javascript"></script>
 
-                @Html.EditorFor(model => model.username, new {htmlAttributes = new {id = "login__username", oninvalid = "InvalidUsername(this);", type = "text", name = "username", @class = "form__input", placeholder = "Username", required = "required"}})
-                @*                @Html.ValidationMessageFor(model => model.username, null, new {@style = "color:red;"})*@
+                @Html.Editor("username", new {htmlAttributes = new {  @type = "email", name = "useremail", @class = "form__input", placeholder = "Email", required = "required"}})
+              
             </div>
 
             <div class="form__field">
@@ -55,9 +55,9 @@
                     </svg>
                     <span class="hidden">Password</span>
                 </label>
-                @Html.EditorFor(model => model.password, new {htmlAttributes = new {id = "login__password", oninvalid = "InvalidPass(this);", type = "password", name = "password", @class = "form__input", placeholder = "Password", required = "required"}})
+                @Html.Editor("password", new {htmlAttributes = new { type = "password", name = "userpassword", @class = "form__input", placeholder = "Password", required = "required"}})
 
-                @*                @Html.ValidationMessageFor(model => model.password, null, new {@style = "color:red;"})*@
+               
             </div>
 
             <div class="form__field" style="background: #188FFF;">
@@ -89,12 +89,21 @@
         </div>
     </div>
 }
-@if (ViewBag.Message != null)
-{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
-        alert("@ViewBag.Message");
+
+        $(document).ready(function() {
+            @if (ViewBag.errorMsg != null) { 
+             @:alert("RECORD NOT FOUND");
+        }
+             
+        });
+
+
+
+        
     </script>
-}
+
 
 </body>
 

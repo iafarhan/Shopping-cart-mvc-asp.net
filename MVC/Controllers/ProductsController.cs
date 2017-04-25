@@ -6,20 +6,20 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-
+using MVC.Models;
 namespace MVC.Controllers
 {
     public class ProductsController : Controller
     {
-        private ProductDBContext db = new ProductDBContext();
+        DbHandlerDataContext db = new DbHandlerDataContext();
 
         // GET: Products
         public ActionResult Index()
         {
-            return View(db.products.ToList());
+            return View(db.Products.ToList());
         }
         public ActionResult ShowToCustomers() {
-            return View(db.products.ToList());
+            return View(db.Products.ToList());
         }
 
         // GET: Products/Details/5
@@ -29,7 +29,7 @@ namespace MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.products.Find(id);
+            Product product = db.Products.Where(x=>x.Pid==id).FirstOrDefault();
             if (product == null)
             {
                 return HttpNotFound();
@@ -40,7 +40,14 @@ namespace MVC.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
-            return View();
+            if (TempData["VName"] != null)
+            {
+                ViewBag.VendorName = TempData["VName"].ToString();
+                return View();
+            }
+            else
+                return RedirectToAction("MainPage", "Home");
+
         }
 
         // POST: Products/Create
@@ -54,13 +61,13 @@ namespace MVC.Controllers
             if (image1 != null)
             {
 
-                product.ProductImage = new byte[image1.ContentLength];
-                image1.InputStream.Read(product.ProductImage, 0, image1.ContentLength);
+                product.PImage = new byte[image1.ContentLength];
+                image1.InputStream.Read(product.PImage, 0, image1.ContentLength);
 
                 if (ModelState.IsValid)
                 {
-                    db.products.Add(product);
-                    db.SaveChanges();
+                    db.Products.InsertOnSubmit(product);
+                    db.SubmitChanges();
                     return RedirectToAction("Index");
                 }
             }
@@ -75,7 +82,7 @@ namespace MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.products.Find(id);
+            Product product = db.Products.Where(x => x.Pid == id).FirstOrDefault();
             if (product == null)
             {
                 return HttpNotFound();
@@ -91,20 +98,23 @@ namespace MVC.Controllers
         public ActionResult Edit(Product product, HttpPostedFileBase newImage)
         {
 
-        if(newImage!=null){
-
-
-
-                product.ProductImage = new byte[newImage.ContentLength];
-                newImage.InputStream.Read(product.ProductImage, 0, newImage.ContentLength);
-
+    
+                
 
                 if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
+                Product p = db.Products.Where(x => x.Pid == product.Pid).FirstOrDefault();
+                p.PName = product.PName;
+                p.Quantity = product.Quantity;
+                p.Price = product.Price;
+                p.Description = product.Description;
+           
+                
+                //setting image
+                p.PImage = new byte[newImage.ContentLength];
+                newImage.InputStream.Read(p.PImage, 0, newImage.ContentLength);
+                db.SubmitChanges();
                 return RedirectToAction("Index");
-            }
             }
 
             return View(product);
@@ -117,7 +127,7 @@ namespace MVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.products.Find(id);
+            Product product = db.Products.Where(x => x.Pid == id).FirstOrDefault();
             if (product == null)
             {
                 return HttpNotFound();
@@ -130,9 +140,9 @@ namespace MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = db.products.Find(id);
-            db.products.Remove(product);
-            db.SaveChanges();
+            Product product = db.Products.Where(x => x.Pid == id).FirstOrDefault();
+            db.Products.DeleteOnSubmit(product);
+            db.SubmitChanges();
             return RedirectToAction("Index");
         }
 

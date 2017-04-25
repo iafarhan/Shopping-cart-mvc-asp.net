@@ -9,10 +9,7 @@ namespace MVC.Controllers
 {
     public class HomeController : Controller
     {
-        static Models.User user = new User();
-        static Models.Vendor vendor = new Vendor();
-        static Login Login = new Login();
-
+        DbHandlerDataContext db = new DbHandlerDataContext();
 
         [HttpGet]
         [ActionName("SignUp")]
@@ -20,41 +17,42 @@ namespace MVC.Controllers
         {
             return View();
         }
-        public ActionResult Payment() {
+        public ActionResult Payment()
+        {
             return View();
         }
         [HttpPost]
         [ActionName("SignUp")]
-        public ActionResult SignUp_post()
+        public ActionResult SignUp_post(Customer user)
         {
-            if (ModelState.IsValid == false)
+            if (ModelState.IsValid == true)
             {
-                return RedirectToAction("SignUp");
+                Customer u = db.Customers.Where(x => x.UEmail == user.UEmail).FirstOrDefault();
+                if (u != null)
+                {
+                    ModelState.AddModelError("", "Email already exists");
+
+                    return View();
+
+                }
+                else
+                {
+                    db.Customers.InsertOnSubmit(user);
+                    db.SubmitChanges();
+                    return RedirectToAction("MainPage", "Home");
+                }
             }
 
-            if (!TryUpdateModel(user))
-            {
-                return RedirectToAction("SignUp");
-            }
-
-            Models.User u = new User();
-            u = user;
-            Boolean check = Models.User.InsertUser(u);
-
-            if (check)
-                return RedirectToAction("DisplayDetails");
             else
-            {
-                ViewBag.Message = "The email already exist.Please enter another email";
                 return View();
-            }
+
+
         }
 
-        public ActionResult DisplayDetails()
+        public ActionResult DisplayDetails(int? id)
         {
-            User u = new User();
-            u = user;
-            return View(u);
+
+            return View();
         }
 
         public ActionResult MainPage()
@@ -62,38 +60,11 @@ namespace MVC.Controllers
             return View();
         }
 
-        [HttpGet]
-        [ActionName("vendorSignUp")]
-        public ActionResult vendorSignUp()
-        {
-            return View();
-        }
 
-        [HttpPost]
-        [ActionName("vendorSignUp")]
-        public ActionResult vendorSignUp_post()
+        public void DisplayDetailsVendor()
         {
-            UpdateModel(vendor);
-            Vendor v = new Vendor();
-            bool check = Vendor.InsertVendor(vendor);
-            if (check)
-            {
-                return RedirectToAction("DisplayDetailsVendor");
-            }
-            else
-            {
-                ViewBag.Message = "The email already exists";
-                return View();
-            }
         }
-
-        public ActionResult DisplayDetailsVendor()
-        {
-            Vendor v = new Vendor();
-            v = vendor;
-            return View(v);
-        }
-
+        [ActionName("Login")]
         public ActionResult LogIn()
         {
             return View();
@@ -101,29 +72,24 @@ namespace MVC.Controllers
 
         [HttpPost]
         [ActionName("Login")]
-        public ActionResult Login_post()
+        public ActionResult Login_post(FormCollection form)
         {
-            if (ModelState.IsValid == false)
+            string upass = Request.Form["password"].ToString();
+            string email = Request.Form["username"].ToString();
+          
+            Vendor v = db.Vendors.Where(x => x.VEmail == email && x.VPassword == upass).FirstOrDefault();
+            if (v != null)
             {
-                return RedirectToAction("Login");
+                TempData["VName"] = v.VName;
+                return RedirectToAction("Index", "Products");
             }
-
-            if (!TryUpdateModel(Login))
-            {
-                return RedirectToAction("Login");
-            }
-
-            Models.Login l = new Login();
-            l = Login;
-            bool check = Models.Login.CheckLogin(l);
-
-            if (check)
-                return RedirectToAction("Dashboard");
             else
             {
-                ViewBag.Message = "The username or password is incorrect! Please try again";
+                ViewBag.errorMsg = "RECORD NOT FOUND";
+
                 return View();
             }
+            
         }
 
         public ActionResult Edit()

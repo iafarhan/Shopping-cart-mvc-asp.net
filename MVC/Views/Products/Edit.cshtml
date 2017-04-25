@@ -1,4 +1,4 @@
-﻿@model Product
+﻿@model MVC.Models.Product
 
 @{
     ViewBag.Title = "Edit";
@@ -17,13 +17,13 @@
         <h4>Product</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(model => model.Pid)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.PName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PName, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -52,14 +52,14 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ProductImage, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PImage, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
 
 
 
 
                 @{
-                    var base64 = Convert.ToBase64String(Model.ProductImage);
+                    var base64 = Convert.ToBase64String(Model.PImage);
                     var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
                 }
                 <img src="@Url.Content(imgSrc)" id="img" height="240" width="220" />

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Product>
+﻿@model IEnumerable<MVC.Models.Product>
 
 @{
     ViewBag.Title = "Index";
@@ -33,7 +33,7 @@
                      
                         @{
 
-                            var base64 = Convert.ToBase64String(item.ProductImage);
+                            var base64 = Convert.ToBase64String(item.PImage);
                             var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
 
 
@@ -42,14 +42,14 @@
                         
                         <div class="addPro">
                         
-                           @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-@Html.ActionLink("Delete", "Delete", new { id = item.id })</div>
+                           @Html.ActionLink("Edit", "Edit", new { id = item.Pid}) |
+                @Html.ActionLink("Details", "Details", new { id = item.Pid }) |
+@Html.ActionLink("Delete", "Delete", new { id = item.Pid })</div>
                     </div>
                     
                     
                     <div class="titlePro">
-                        <a href="javascript:;">@item.Name</a>
+                        <a href="javascript:;">@item.PName</a>
                         <span>$@item.Price</span>
 
                         <p class="descTitle">Detailed item information</p>
