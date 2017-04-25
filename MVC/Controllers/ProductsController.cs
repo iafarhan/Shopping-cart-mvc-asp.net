@@ -7,11 +7,30 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVC.Models;
+using System.IO;
+
 namespace MVC.Controllers
 {
     public class ProductsController : Controller
     {
         DbHandlerDataContext db = new DbHandlerDataContext();
+
+        public ActionResult GetProductImage(int id)
+        {
+            Product v = db.Products.Where(x => x.Pid == id).FirstOrDefault();
+            byte[] b = v.PImage.ToArray();
+
+            MemoryStream ms = new MemoryStream(b);
+            return File(ms.ToArray(), "image/jpg");
+        }
+
+        public string GetProductVendor(int ?id) {
+
+            Vendor v = db.Vendors.Where(x => x.Vid == (int)id).FirstOrDefault();
+            return v.VName;
+
+
+        }
 
         // GET: Products
         public ActionResult Index()
@@ -62,8 +81,9 @@ namespace MVC.Controllers
             if (image1 != null)
             {
 
-                product.PImage = new byte[image1.ContentLength];
-                image1.InputStream.Read(product.PImage, 0, image1.ContentLength);
+                byte[] img = new byte[image1.ContentLength];
+                image1.InputStream.Read(img, 0, image1.ContentLength);
+                product.PImage = new System.Data.Linq.Binary(img);
 
                 if (ModelState.IsValid)
                 {
@@ -110,11 +130,12 @@ namespace MVC.Controllers
                 p.Quantity = product.Quantity;
                 p.Price = product.Price;
                 p.Description = product.Description;
-           
-                
+
+
                 //setting image
-                p.PImage = new byte[newImage.ContentLength];
-                newImage.InputStream.Read(p.PImage, 0, newImage.ContentLength);
+                byte[] img = new byte[newImage.ContentLength];
+                newImage.InputStream.Read(img, 0, newImage.ContentLength);
+                product.PImage = new System.Data.Linq.Binary(img);
                 db.SubmitChanges();
                 return RedirectToAction("Index");
             }

@@ -1,226 +1,238 @@
-﻿* {
-    margin: 0;
-    padding: 0;
+﻿html {
+    background: #bbc3c6;
+    font: 62.5%/1.5em "Trebuchet Ms", helvetica;
 }
 
-body {
-    font: 14px/18px'OpenSans-Bold', sans-serif;
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
 }
 
-ul {
-    list-style: none;
+@font-face {
+    font-family: 'Shopper';
+    src: url('http://www.shopperfont.com/font/Shopper-Std.ttf');
 }
 
-.wrapper {
-    width: 700px;
-    margin: 20px auto;
-}
-/* products */
-.products {
-    margin: 40px 0;
-    overflow: hidden;
-    border-left: 1px solid #d9d9d9;
-    border-bottom: 1px solid #d9d9d9;
-}
-
-    .products ul li p {
-        display: none;
-    }
-
-    .products ul.list li p {
-        display: block;
-    }
-
-    .products .list li {
-        float: none;
-        display: block;
-        width: 691px;
-        height: 245px;
-    }
-
-        .products .list li .titlePro {
-            float: left;
-            position: relative;
-            padding: 45px 0 20px 0;
-            width: auto;
-            height: auto;
-            border: 0;
-            background: transparent;
-        }
-
-        .products .list li:hover .titlePro {
-            border: 0;
-        }
-
-        .products .list li .titlePro a {
-            padding: 0 0 5px 0;
-        }
-
-        .products .list li .titlePro .descTitle {
-            color: #333;
-            text-transform: none !important;
-            padding: 10px 0 0 0;
-        }
-
-        .products .list li .titlePro p {
-            color: #333;
-            text-transform: none !important;
-            width: 440px;
-        }
-
-        .products .list li .wrapimg {
-            height: 243px;
-            float: left;
-            border-right: 1px solid #d9d9d9;
-            margin: 0 13px 0 0;
-            width: 230px;
-            position: relative;
-        }
-
-            .products .list li .wrapimg img {
-                position: absolute;
-                margin: auto;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-            }
-
-        .products .list li .addPro {
-            height: 243px;
-            border-bottom: 1px solid rgba(51, 51, 51, 1);
-        }
-
-            .products .list li .addPro a {
-                margin: 45% auto auto 40px;
-            }
-
-    .products.catalog {
-        margin: 80px auto 40px auto;
-    }
-
-    .products.category {
-        margin: 10px 0;
-        width: 693px;
-        float: left;
-    }
-
-    .products ul li {
-        float: left;
-        margin: 0;
-        padding: 0;
-        width: 230px;
-        height: 244px;
-        position: relative;
-        border-top: 1px solid #d9d9d9;
-        border-right: 1px solid #d9d9d9;
-    }
-
-        .products ul li img {
-            position: absolute;
-            margin: auto;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-
-        .products ul li:hover .addPro, .products ul li:hover .addPro a {
-            opacity: 1;
-        }
-
-        .products ul li:hover .titlePro {
-            border: 1px solid rgba(51, 51, 51, 1);
-            border-top: 0;
-        }
-
-            .products ul li:hover .titlePro a {
-                color: #010101;
-            }
-
-.addPro {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 230px;
-    height: 195px;
-    border: 1px solid rgba(51, 51, 51, 1);
-    border-bottom: 0;
-    background: rgba(255, 255, 255, 0.5);
-    opacity: 0;
-    -webkit-transition: opacity 0s;
-    -moz-transition: opacity 0s;
-    -o-transition: opacity 0s;
-}
-
-    .addPro a {
-        text-decoration: none;
-        display: inline-block;
-        width: 100px;
-        height: 40px;
-        margin-top:20px;
-    margin-left:60px;
-        background-color: #333;
-        text-align: center;
-        font: 14px/40px'OpenSans-Italic', sans-serif;
-        color: #fff;
-        opacity: 0;
-        -webkit-transition: opacity 1s;
-        -moz-transition: opacity 1s;
-        -o-transition: opacity 1s;
-    }
-
-.titlePro {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 230px;
-    height:50px;
-    border: 1px solid rgba(51, 51, 51, 0);
-    -webkit-transition: opacity 1s;
-    -moz-transition: opacity 1s;
-    -o-transition: opacity 1s;
-    border-top: 0;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.5);
-}
-
-    .titlePro p, .titlePro span, .titlePro a {
-        text-transform: uppercase;
-    }
-
-    .titlePro a {
-        color: #003f75;
-        text-decoration: none;
-        display: block;
-    }
-
-    .titlePro span {
-        color: #a20000;
-    }
-
-.view p {
-    top: 5px;
-    margin: 0 10px 0 0;
-}
-
-.view p,
-.view a {
-    float: left;
+.shopper {
+    text-transform: lowercase;
+    font: 2em 'Shopper', sans-serif;
+    line-height: 0.5em;
     display: inline-block;
+}
+
+
+
+h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2.5em;
+}
+
+p {
+    font-size: 1.5em;
+    color: #8a8a8a;
+}
+
+input {
+    border: 0.3em solid #bbc3c6;
+    padding: 0.5em 0.3em;
+    font-size: 1.4em;
+    color: #8a8a8a;
+    text-align: center;
+}
+
+img {
+    max-width: 9em;
+    width: 100%;
+    overflow: hidden;
+    margin-right: 1em;
+}
+
+a {
     text-decoration: none;
+}
+
+.container {
+    max-width: 75em;
+    width: 95%;
+    margin: 40px auto;
+    overflow: hidden;
     position: relative;
+    border-radius: 0.6em;
+    background: #ecf0f1;
+    box-shadow: 0 0.5em 0 rgba(138, 148, 152, 0.2);
 }
 
-.icon-grid {
-    background: url("http://cdn1.iconfinder.com/data/icons/jigsoar-icons/16/_thumbnail.png") no-repeat 0 0;
-    height: 16px;
-    width: 16px;
-    top: 7px;
+.heading {
+    padding: 1em;
+    position: relative;
+    z-index: 1;
+    color: #f7f7f7;
+    background: #f34d35;
 }
 
-.icon-list {
-    background: url("http://cdn3.iconfinder.com/data/icons/other-icons/48/list-32.png") no-repeat 0 0;
-    height: 32px;
-    width: 32px;
+.cart {
+    margin: 2.5em;
+    overflow: hidden;
+}
+
+    .cart.is-closed {
+        height: 0;
+        margin-top: -2.5em;
+    }
+
+.table {
+    background: #ffffff;
+    border-radius: 0.6em;
+    overflow: hidden;
+    clear: both;
+    margin-bottom: 1.8em;
+}
+
+
+.layout-inline > * {
+    display: inline-block;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.th {
+    background: #f34d35;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.tf {
+    background: #f34d35;
+    text-transform: uppercase;
+    text-align: right;
+    font-size: 1.2em;
+}
+
+    .tf p {
+        color: #fff;
+        font-weight: bold;
+    }
+
+.col {
+    padding: 1em;
+    width: 12%;
+}
+
+.col-pro {
+    width: 44%;
+}
+
+    .col-pro > * {
+        vertical-align: middle;
+    }
+
+.col-qty {
+    text-align: center;
+    width: 17%;
+}
+
+.col-numeric p {
+    font: bold 1.8em helvetica;
+}
+
+.col-total p {
+    color: #12c8b1;
+}
+
+.tf .col {
+    width: 20%;
+}
+
+.row > div {
+    vertical-align: middle;
+}
+
+.row-bg2 {
+    background: #f7f7f7;
+}
+
+.visibility-cart {
+    position: absolute;
+    color: #fff;
+    top: 0.5em;
+    right: 0.5em;
+    font: bold 2em arial;
+    border: 0.16em solid #fff;
+    border-radius: 2.5em;
+    padding: 0 0.22em 0 0.25em;
+}
+
+.col-qty > * {
+    vertical-align: middle;
+}
+
+.col-qty > input {
+    max-width: 2.6em;
+}
+
+
+a.qty {
+    width: 1em;
+    line-height: 1em;
+    border-radius: 2em;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+    background: #43ace3;
+    color: #fff;
+}
+
+    a.qty:hover {
+        background: #3b9ac6;
+    }
+
+.btn {
+    padding: 10px 30px;
+    border-radius: 0.3em;
+    font-size: 1.4em;
+    font-weight: bold;
+    background: #43ace3;
+    color: #fff;
+    box-shadow: 0 3px 0 rgba(59,154,198, 1)
+}
+
+    .btn:hover {
+        box-shadow: 0 3px 0 rgba(59,154,198, 0)
+    }
+
+.btn-update {
+    float: right;
+    margin: 0 0 1.5em 0;
+}
+
+.transition {
+    transition: all 0.3s ease-in-out;
+}
+
+@media screen and ( max-width: 755px) {
+    .container {
+        width: 98%;
+    }
+
+    .col-pro {
+        width: 35%;
+    }
+
+    .col-qty {
+        width: 22%;
+    }
+
+    img {
+        max-width: 100%;
+        margin-bottom: 1em;
+    }
+}
+
+@media screen and ( max-width: 591px) {
 }

@@ -269,11 +269,11 @@ namespace MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PImage", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
-		public  byte[] PImage
+		public  System.Data.Linq.Binary PImage
 		{
 			get
 			{
-				return this._PImage.ToArray();
+				return this._PImage;
 			}
 			set
 			{
